@@ -12,16 +12,14 @@ def main():
 
     parameter = {
         "datamodel_name": f"{tenant}_{case}_{dev}_{model_name}",
-        "dataset_name": f"{tenant}_{case}_{dev}_{model_name}_set",
+        "dataset_name": f"{tenant}_{case}_{dev}_{model_name}",
         "provider": "RedShift",
         "table_list": table_list
     }
 
-    password_detail = password_details(tenant)
+    parameter.update(connect_password.password_details(tenant))
 
-    parameter.update(password_detail)
-    # automate_cube_creation(parameter)
-    print(parameter)
+    live_models.automate_cube_creation(parameter)
 
-if __name__ == '__main__':
-    main()
+
+main()

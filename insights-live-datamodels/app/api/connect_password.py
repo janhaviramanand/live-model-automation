@@ -54,31 +54,31 @@ def password_details(tenant: str):
     return get_password(datalake_user)
 
 
-def start():
-    tenant = input("Enter the tenant name: ")
-    case = input("Enter the use case: ")
-    dev = input("Enter the environment (dev/ test/ stage/ prod): ")
-    model_name = input("(Note: this will be added at the last of the datamodel name) \nEnter the model name: ")
-    region = input("Enter the region (US/ EU): ")
-    num = int(input(
-        "Choose the table number: \n1. sales \n2. npc \n3. phc\n"))
-
-    table: dict = {
-        "sales": ["v_fact_sales_bi"],
-        "npc": ["v_npcomparison_migration_fact_bi"],
-        "phc": ["v_phcomparison_fact_bi"]
-    }
-
-    parameter = {
-        "datamodel_name": f"{tenant}_{case}_{dev}_{model_name}",
-        "dataset_name": f"{tenant}_{case}_{dev}_{model_name}",
-        "provider": "RedShift",
-        "table_list": table[num]
-    }
-
-    parameter.update(password_details('agco'))
-
-    automate_cube_creation(parameter)
-
-
-start()
+# def start():
+#     tenant = input("Enter the tenant name: ")
+#     case = input("Enter the use case: ")
+#     dev = input("Enter the environment (dev/ test/ stage/ prod): ")
+#     model_name = input("(Note: this will be added at the last of the datamodel name) \nEnter the model name: ")
+#     region = input("Enter the region (US/ EU): ")
+#     num = int(input(
+#         "Choose the table number: \n1. sales \n2. npc \n3. phc\n"))
+#
+#     table: dict = {
+#         "sales": ["v_fact_sales_bi"],
+#         "npc": ["v_npcomparison_migration_fact_bi"],
+#         "phc": ["v_phcomparison_fact_bi"]
+#     }
+#
+#     parameter = {
+#         "datamodel_name": f"{tenant}_{case}_{dev}_{model_name}",
+#         "dataset_name": f"{tenant}_{case}_{dev}_{model_name}",
+#         "provider": "RedShift",
+#         "table_list": table[num]
+#     }
+#
+#     parameter.update(password_details('agco'))
+#
+#     automate_cube_creation(parameter)
+#
+#
+# start()

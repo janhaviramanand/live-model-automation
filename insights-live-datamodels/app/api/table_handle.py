@@ -37,7 +37,7 @@ def table_schema_data(parameter: dict, table_name: str):
     }
 
     response = requests.post(url=endpoint, json=data, headers=headers)
-    response.raise_for_status()
+    #response.raise_for_status()
     return response.json()
 
 
@@ -97,6 +97,6 @@ def refresh_schema(parameter: dict, table_name: str):
 #     "database": "agco",
 #     "provider": "RedShift",
 #     "schema": "agco_price_datalake_dev",
-#     "table_list": ["v_fact_sales_bi, v_phcomparison_fact_bi"]
+#     "table_list": ["v_fact_sales_bi, v_phcomparison_fact_bi"] #["v_fact_sales, v_phcomparison_fact"]
 # }
 # refresh_schema(params, "v_fact_sales_bi")
