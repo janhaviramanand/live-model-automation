@@ -1,5 +1,5 @@
-from app.api.connect_password import password_details
-from app.api.live_models import automate_cube_creation
+import app.api.live_models as live_models
+import app.api.connect_password as connect_password
 
 
 def main():
